@@ -1,0 +1,92 @@
+
+7. i) Write a Cursor to fetch all rows of table invoice
+
+SQL> DECLARE
+    p invoice   invoice.inv_no%TYPE;
+    q invoice   invoice.mv_no%TYPE;
+    r invoice   invoice.cust_id%TYPE;
+    s invoice   invoice.issue_date%TYPE;
+    t invoice   invoice.return_date%TYPE;
+    u invoice   invoice.price%TYPE;
+    
+    CURSOR invoice_cursor IS
+    SELECT * FROM invoice;
+    BEGIN
+    OPEN invoice_cursor;
+   
+    DBMS_OUTPUT.PUT_LINE('Invoice_no' || 'movie_no' || 'customer_id' || 'Issue date'||'Return date'||'Price');
+   
+    LOOP
+    FETCH invoice_cursor INTO 
+    p, q, r, s, t, u;   
+    EXIT WHEN invoice_cursor%NOTFOUND;
+    DBMS_OUTPUT.PUT_LINE(RPAD (p, 10) ||RPAD (q, 10) || RPAD (1,10)||RPAD (s, 1 0) ||RPAD (t, 10) ||RPAD (u, 10));
+
+    EXIT WHEN invoice_cursor%NOTFOUND;
+    END LOOP;
+    CLOSE invoice_cursor;
+    END;
+    /
+
+
+ii) Write a Cursor to display all movies with issue_date between 01-Jan-06 to 01-sep-06. If no record found then use Exception to display proper message.
+
+SQL> CREATE TABLE stud(name varchar2(25), age number (3));
+SQL> INSERT INTO stud values('Swarup', 23);
+SQL> INSERT INTO stud values('Shraddha',21);
+SQL> INSERT INTO stud values('Ashish', 23);
+SQL> SELECT * from stud;
+
+
+SQL> SET SERVEROUTPUT ON;
+
+DECLARE
+  err EXCEPTION;
+  sname VARCHAR2(25);
+  a NUMBER(3);
+BEGIN
+  sname := '&sname';
+  a := &a;
+  
+  IF a < 18 THEN
+    RAISE err;
+  ELSE
+    INSERT INTO stud VALUES (sname, a);
+  END IF;
+  
+EXCEPTION
+  WHEN err THEN
+    DBMS_OUTPUT.PUT_LINE('Please enter an age greater than 18');
+END;
+/
+
+
+
+iii) Write a PI/SQL to accept the name and age of student and insert into table STUD after validating age not less than 18 otherwise raise exception.
+
+SQL> CREATE TABLE stud(name VARCHAR2(25), age NUMBER(3));
+SQL> INSERT INTO stud (name, age) VALUES ('chetna', 20);
+SQL> INSERT INTO stud (name, age) VALUES ('mehul', 19);
+SQL> INSERT INTO stud (name, age) VALUES ('purva', 21);
+SQL> SELECT * from stud;
+
+
+SQL> set serveroutput on;
+
+SQL> DECLARE
+  err EXCEPTION;
+  sname VARCHAR2(25);
+  sage NUMBER(3);
+BEGIN
+  sname := '&sname';
+  sage := '&sage';
+  IF sage < 18 THEN
+    RAISE err;
+  ELSE
+    INSERT INTO stud VALUES (sname, sage);
+  END IF;
+EXCEPTION 
+  WHEN err THEN
+    DBMS_OUTPUT.PUT_LINE ('Please enter an age greater than 18.');
+END;
+/

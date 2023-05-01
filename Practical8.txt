@@ -1,0 +1,49 @@
+
+8. Create Procedure
+i) to swap two values
+
+SQL> SET SERVEROUTPUT ON;
+
+SQL> CREATE OR REPLACE PROCEDURE swap AS
+  a NUMBER(4);
+  b NUMBER(4);
+BEGIN
+  a := &a;
+  b := &b;
+
+  DBMS_OUTPUT.PUT_LINE('Before swap');
+  DBMS_OUTPUT.PUT_LINE('a = ' || a);
+  DBMS_OUTPUT.PUT_LINE('b = ' || b);
+
+  a := a + b;
+  b := a - b;
+  a := a - b;
+
+  DBMS_OUTPUT.PUT_LINE('After swap');
+  DBMS_OUTPUT.PUT_LINE('a = ' || a);
+  DBMS_OUTPUT.PUT_LINE('b = ' || b);
+END swap;
+/
+
+
+SQL> EXEC swap;
+
+
+ii) to display the cust_id, mv_no and call the procedure through main program
+
+SQL> SET SERVEROUTPUT ON;
+
+SQL> CREATE OR REPLACE PROCEDURE display IS
+  CURSOR cn IS 
+    SELECT * FROM invoice;
+  crn cn%ROWTYPE;
+BEGIN
+  OPEN cn;
+  LOOP
+    FETCH cn INTO crn;
+    EXIT WHEN cn%NOTFOUND;
+    DBMS_OUTPUT.PUT_LINE(crn.mv_no || ' ' || crn.cust_id);
+  END LOOP;
+  CLOSE cn;
+END;
+/

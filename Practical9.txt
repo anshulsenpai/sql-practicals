@@ -1,0 +1,44 @@
+9. Create Function
+
+i) to find gcd of two numbers.
+
+SQL> SET SERVEROUTPUT ON;
+
+SQL> CREATE OR REPLACE FUNCTION gcd(a NUMBER, b NUMBER)
+RETURN NUMBER IS
+BEGIN
+  IF b = 0 THEN
+    RETURN a;
+  ELSE
+    RETURN gcd(b, MOD(a, b));
+  END IF;
+END;
+/
+
+SQL> SELECT gcd(8, 12) from dual;
+
+
+
+ii) to find the total price of all the movie start with letter „K" and call the function through main program
+
+SQL> SET SERVEROUTPUT ON;
+
+SQL> CREATE OR REPLACE FUNCTION totalmovie
+
+RETURN number IS
+total number (30) := 0;
+BEGIN
+SELECT sum (price) into total FROM movie where title like 'k';
+RETURN total;
+END;
+/
+
+FUNCTION CREATED.
+
+SQL> DECLARE
+c number (30);
+BEGIN
+c := totalmovie ();
+dbms_output.put_line ('Total price of movie start with letter k: ' || c);
+END;
+/

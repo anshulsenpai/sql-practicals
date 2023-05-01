@@ -1,0 +1,45 @@
+4. Create the table Movie with fields mv_no (number, Primary Key), title (Char), Type(char), star(char), price (number),Releasedate (date)
+
+SQL> CREATE TABLE Movie(mv_no number(3) primary key, title char(30), type char(30), star char(30), price number(4), release_date date);
+
+
+
+i) Add few records in above table
+
+SQL> INSERT INTO Movie values(6, 'kick', 'thiller', 'salman', 500, '21-aug-14");
+
+
+
+ii) Count total number of customer
+
+SQL> SELECT count(mv_no) AS "Total number of customer" from Movie;
+
+
+iii) Calculate total price of all the movies.
+
+SQL> SELECT sum(price) AS "Total Price of all movies" from Movie;
+
+
+iv) Calculate average price of all the movies.
+
+SQL> SELECT avg(price) AS "Average of all movies" from Movie;
+
+
+v) Determine the maximum & minimum movies and rename the title as MAX-PRICE and MIN-PRICE.
+
+SQL> SELECT max(price) AS "MAX-PRICE", min(price) AS "MIN-PRICE" from Movie;
+
+
+vi) Count the number of movies having price greater than or equal to 150.
+
+SQL> SELECT count(mv_no) from Movie WHERE price >= 150;
+
+
+vii) Display total no. of movies released in the current year.
+
+SQL> SELECT COUNT (mv_no) FROM Movie WHERE release_date between '31-dec-15' and '31-dec-16';
+
+
+viii) Display all the movie which start with letter,, K".
+
+SQL> SELECT from Movie WHERE title like 'k';

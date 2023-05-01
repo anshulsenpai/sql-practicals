@@ -1,0 +1,46 @@
+2.
+
+a) Add a records in above table
+
+SQL> INSERT INTO Invoice values ('113', 3, 'a07', '17-Jan-06', '21-feb-06', 5000);
+SQL> SELECT * from Invoice;
+
+
+b)  
+
+i)Change inv_no of 112 with 1111".
+
+SQL> UPDATE Invoice SET inv_no='1111' WHERE inv_no='112';
+
+
+ii)Change issue_date of customer of cust_id a01" to "22-Dec-06".
+
+SQL> UPDATE Invoice SET issue_date='22-dec-06' WHERE cust_id='a01';
+
+
+iii)CHANGE movie no of cust_id, 'a05' to 11.
+
+SQL> UPDATE Invoice SET mv_no=11 WHERE cust_id='a05';
+
+
+iv)Display all movies with issue_date between 01-jan-06 to 01-Sep-06.
+
+SELECT from Invoice WHERE issue_date between 01-Jan-06"
+
+
+v)Display information for cust_id,a01"&a02".
+
+SELECT from Invoice WHERE cust_id='a01' or cust_id="a02';
+
+
+
+c)
+i) Delete records with inv_no111"from invoice table.
+
+SQL> DELETE from Invoice WHERE inv_no=111:
+
+ii) Delete records having return date <="20-Jan-06".
+
+SQL> DELETE from Invoice WHERE return_date<='20-jan-06';
+
+SQL> SELECT * from Invoice:

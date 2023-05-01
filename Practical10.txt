@@ -1,0 +1,44 @@
+10. Create Trigger
+i) that restricts the user from performing a DML on movie table
+on Monday"
+
+SQL> CREATE OR REPLACE TRIGGER no_update_on_monday
+BEFORE INSERT OR UPDATE OR DELETE ON movie
+BEGIN
+  IF TRIM(TO_CHAR(SYSDATE, 'DAY')) = 'MONDAY' THEN
+    RAISE_APPLICATION_ERROR(-20224, 'Cannot modify movie on Monday');
+  END IF;
+END;
+/
+
+
+ii) Covert all the movie name INTO the upper case on INSERTion
+of each row.
+
+SQL> CREATE OR REPLACE TRIGGER abc 
+BEFORE INSERT OR UPDATE ON movie
+FOR EACH ROW
+BEGIN
+  :NEW.title := UPPER(:NEW.title);
+END;
+/
+
+
+
+
+SQL> INSERT INTO movie(mv_no, title) values (11, 'kaal');
+
+SQL> INSERT INTO movie(mv_no, title) values (12, 'jaal');
+
+SQL> INSERT INTO movie(mv_no, title) values (13, 'paa');
+
+SQL> INSERT INTO movie (mv_no, title) values (14, 'meet');
+
+SQL> INSERT INTO movie(mv_no, title) values (15, 'sajan');
+
+SQL> INSERT INTO movie(mv_no, title) values (16, 'saathiya');
+
+SQL> INSERT INTO movie(mv_no, title) values (17, 'jeet');
+
+SQL> select mv_no, title from movie WHERE my no BETWEEN 11 and 17;
+

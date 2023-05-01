@@ -1,0 +1,65 @@
+6. PL/SQL Programming: Write a PL/SQL block 
+
+
+i) to find largest of 2 numbers 
+
+SQL> set serveroutput on
+
+SQL> DECLARE
+    numl number;
+    num2 number;
+    
+    BEGIN
+
+    num1:=&number;
+    num2:=&number;
+
+    if numl>num2 then
+    dbms_output.put_line (num1 ||  'IS GERATER');
+    ELSE
+    dbms_output.put_line (num2 || 'IS GERATER');
+    END IF;
+
+    end;
+    /
+
+OUTPUT:
+    Enter value for number: 34 old 7: num1:=&number;
+    new 7: numl:=34; Enter value for number: 45
+    old 9: num2:=&number;
+    new 9: num2:=45;
+    ENTER FIRST NUMBER
+    ENTER SECOND NUMBER
+    45 is greater
+    PL/SQL procedure successfully completed.
+
+
+ii) to reverse the number
+
+
+SQL> set serveroutput on;
+
+SQL> FIND REVERSE OF A NUMBER :
+
+SQL> DECLARE 
+    num number;
+    rev number;
+    last number;
+    BEGIN
+    num:=&num;
+    rev:=0;
+    WHILE  > 0 loop
+    last: -mod (num, 10);
+    rev: (rev*10)+last;
+    num: trunc (num/10);
+    end loop;
+    dbms_output.put_line (rev || 'IS REVERSE');
+    end;
+    /
+
+
+OUTPUT: 
+
+Enter value for num: 1234 old 6: num:&num;
+new 6: num:=1234; 4321 IS REVERSE
+PL/SQL procedure successfully completed.

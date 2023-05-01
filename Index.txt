@@ -1,0 +1,114 @@
+1. DDL Statements:
+
+a) Create the table Invoice with fields inv_no (char, Primary key), mv_no(number), cust_id (char), issue_date(date), return_date(date). Insert data in the table invoice as follows:
+
+Inv_nomv_nocust_idissue_datereturn_date 101 1 a01 21-Dec-06 25-Dec-06
+102 3 a02 19-Oct-06 30-Oct-06
+103 5 a03 14-Jul-06 1-Aug-06
+104 5 a04 15-Sep-06 30-Sept-06
+105 6 a05 19-Oct-06 21-Oct-06
+106 7 a06 1-Jan-06 15-Jan-06
+107 8 a07 15-Aug-06 30-Aug-06 108 2 a05 1-Oct-06 15-Oct-06
+109 4 a01 12-sep-06 19-Sep-06
+110 9 a02 1-Dec-06 15-Dec-06
+111 6 a05 2-feb-06 14-feb-06
+112 3 a06 1-Jan-06 10-Jan-06
+
+b) Modifying Table Structure by adding the new field price (number) and increasing the size of inv_no.
+c) Add and Drop Constraints
+    i) Add primary key constraint 
+    ii) Drop primary key constraint 
+    iii) Add Unique key constraint 
+    iv) Drop Unique key constraint
+    v) Add check constraint
+
+
+
+
+2. DML Statements:
+
+a) Add a records in above table
+
+b)  i)Change inv_no of 112 with 1111".
+    ii)Change issue_date of customer of cust_id a01" to "22-Dec-06".
+    iii)Change movie no of cust_id,a05" to 11.
+    iv)Display all movies with issue_date between 01-jan-06 to 01-Sep-06
+    v)Display information for cust_id,a01"&a02".
+
+c)  i) Delete records with inv_no111"from invoice table.
+    ii) Delete records having return date <="20-Jan-06".
+
+
+
+
+3. DCL and TCL Statements
+
+i) Grant insertion and deletion privileges on invoice table to
+another user XYZ.
+ii) Revoke the deletion privileges from user XYZ 
+iii) After insertion of two records in invoice table create savepoint A.
+iv) Delete a record and create savepoint B.
+v) rollback to A
+
+
+
+
+4. Create the table Movie with fields mv_no (number, Primary Key), title (Char), Type(char), star(char), price (number),Releasedate (date)
+
+i) Add few records in above table
+ii) Count total number of customer
+iii) Calculate total price of all the movies.
+iv) Calculate average price of all the movies.
+v) Determine the maximum & minimum movies and rename the title as MAX-PRICE and MIN-PRICE.
+vi) Count the number of movies having price greater than or equal to 150.
+vii) Display total no. of movies released in the current year.
+viii) Display all the movie which start with letter,, K".
+
+
+
+
+5.  i) Create a View of table Invoice with following column inv_no(char, Primary key), mv_no(number), cust_id (char) 
+ii) Insert and delete records
+iii) drop view
+
+
+
+
+6. PL/SQL Programming:
+
+Write a PL/SQL block 
+    i) to find largest of 2 numbers 
+    ii) to reverse the number
+
+
+
+
+7. Cursor
+
+i) Write a Cursor to fetch all rows of table invoice
+ii) Write a Cursor to display all movies with issue_date between 01-Jan-06 to 01-sep-06. If no record found then use Exception to display proper message.
+iii) Write a PI/SQL to accept the name and age of student and insert into table STUD after validating age not less than 18 otherwise raise exception
+
+
+
+
+8. Create Procedure
+i) to swap two values
+ii) to display the cust_id, mv_no and call the procedure through main program
+
+
+
+
+9. Create Function
+
+i) to find gcd of two numbers.
+ii) to find the total price of all the movie start with letter „K" and call the function through main program
+
+
+
+
+10. Create Trigger
+i) that restricts the user from performing a DML on movie table
+on Monday"
+ii) Covert all the movie name into the upper case on insertion
+of each row.

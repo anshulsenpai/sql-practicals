@@ -1,0 +1,29 @@
+3. DCL and TCL Statements
+
+i) Grant insertion and deletion privileges on invoice table to
+another user XYZ.
+
+SQL> grant INSERT, DELETE ON Invoice to XYZ;
+    DELETE from_system.Invoice WHERE inv_no='I03';
+
+
+ii) Revoke the deletion privileges from user XYZ 
+
+SQL> REVOKE DELETE ON Invoice from XYZ;
+
+
+iii) After insertion of two records in invoice table create savepoint A.
+
+SQL> Insert INTO system.Invoice values('106,10, 'a06', '13-jan-06', '30-mar-06', 8900);
+SQL> Insert into system.invoice values ( 111', 11, 'a11', '15-apr-06', '30-aug-06', 8000);
+SQL> SAVEPOINT A;
+
+
+
+iv) Delete a record and create savepoint B.
+SQL> DELETE from Invoice where inv_no="111';
+SQL> SAVEPOINT B;
+
+v) Rollback to A
+SQL> ROLLBACK to A;
+

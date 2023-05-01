@@ -1,0 +1,50 @@
+a) Create the table Invoice with fields inv_no (char, Primary key), mv_no(number), cust_id (char), issue_date(date), return_date(date). Insert data in the table invoice as follows:
+
+SQL> CREATE TABLE Invoice(inv_no char(5) primary key, mv_no number(4), cust_id char(3), issue_date date, return_data date);
+
+SQL> SELECT * from Invoice;
+
+
+b) Modifying Table Structure by adding the new field price (number) and increasing the size of inv_no.
+
+SQL> ALTER TABLE Invoice ADD(price number(7));
+
+SQL> Desc Invoice;
+
+SQL> ALTER TABLE Invoice MODIFY(inv_no char(7));
+
+
+c) Add and Drop Constraints
+
+i) Add primary key constraint
+
+SQL> ALTER TABLE Invoice ADD primary key(inv_no);
+SQL> desc Invoice;
+
+ii) Drop primary key constraint 
+
+SQL> ALTER TABLE Invoice DROP primary key;
+SQL> desc Invoice;
+
+
+iii) Add Unique key constraint
+
+SQL> ALTER TABLE Invoice MODIFY(inv_no char(10) unique);
+SQL> desc Invoice;
+
+
+iv) Drop Unique key constraint
+
+SQL> ALTER TABLE Invoice DROP unique (inv_no);
+SQL> desc Invoice;
+
+v) Add check constraint
+
+SQL> ALTER TBALE Invoice ADD constraint check_inv_no CHECK (inv_no < 'I10');
+
+SQL> INSERT INTO Invoice values('I10', 3, 'a06', '17-jan-23', '21-feb-23', 7000);
+
+    INSERT INTO Invoice values('I10', 3, 'a06', '17-jan-23', '21-feb-23', 7000);
+                                *
+    ERROR at line 1:
+    ORA-02290: check constraint (SYSTEM.check_inv_no) violated
